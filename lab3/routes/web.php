@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +29,16 @@ Route::get('aboutMe',function(){
 });
 
 Route::redirect('contactMe','contactMe.php');
+
+Route::get('/post/create',function ()
+{
+	DB::table('posts')->insert([
+		'title' => 'Ramazan Baigazy',
+		'body' => '2+2=4'
+	]);
+});
+
+Route::get('/post',function(){
+	$post = Post::find(1);
+	return $post;
+});
