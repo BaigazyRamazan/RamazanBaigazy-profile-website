@@ -90,4 +90,14 @@ class BlogController extends Controller
     {
         //
     }
+
+    public function get_post($id)
+    {
+        $post = Post::find($id);
+
+        if ($post == null) {
+            return response(['message' => 'post not found'],404);
+        }
+        return view('post.detail')->with(['post' => $post]);
+    }
 }
