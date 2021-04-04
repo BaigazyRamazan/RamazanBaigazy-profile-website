@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 
 use App\Http\Controllers\BlogController; 
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +57,14 @@ Route::get('blog/create',function(){
 Route::post('blog/create',[BlogController::class, 'store'])->name('add-post');
 
 Route::get('post/{id}',[BlogController::class, 'get_post']);
+
+Route::get('lab8/login',function(){
+	return view('login');
+});
+Route::post('lab8/store',[FormController::class, 'store'])->name('form');
+
+Route::get('lab8/mail',[MailController::class, 'send_mail'])->name('mail');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
