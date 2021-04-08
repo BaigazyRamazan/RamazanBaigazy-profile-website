@@ -13,45 +13,50 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 </head>
 <body>
 	<div class="header">
 		<div>
-			<a id="main" href="#">Home</a>
+			<a href="{{route('main',app()->getLocale())}}">{{__("Home")}}</a>
 		</div>
 		<div>
-			<p id="active">About Me</p>
+			<p id="active">{{__("About Me")}}</p>
 		</div>
 		<div>
-			<a id="contact" href="#">Contact Me</a>
+			<a href="{{route('contactMe',app()->getLocale())}}">{{__("Contact Me")}}</a>
+		</div>
+		<div class="nav-item">
+			<a href="{{route(Route::currentRouteName(),'en')}}" class="">EN</a>
+			<a href="{{route(Route::currentRouteName(),'ru')}}" class="">RU</a>
+			<a href="{{route(Route::currentRouteName(),'kz')}}" class="">KZ</a>
 		</div>
 	</div>
 	<div class="body">
 		<div class="personal">
-			<h1>Personal Information</h1>
+			<h1>{{__("Personal Information")}}</h1>
 			<br>
 			<dl>
-				<dt>Name:</dt>
-					<dd>Ramazan</dd>
-				<dt>Surname:</dt>
-					<dd>Baigazy</dd>
-				<dt>Citizenship:</dt>
-					<dd>Kazakhstan</dd>
-				<dt>Place of Birth:</dt>
-					<dd>Aktobe:</dd>
-				<dt>Date of Birth:</dt>
+				<dt>{{__("Name")}}:</dt>
+					<dd>{{__("Ramazan")}}</dd>
+				<dt>{{__("Surname")}}:</dt>
+					<dd>{{__("Baigazy")}}</dd>
+				<dt>{{__("Citizenship")}}:</dt>
+					<dd>{{__("Kazakhstan")}}</dd>
+				<dt>{{__("Place of Birth")}}:</dt>
+					<dd>{{__("Aktobe")}}:</dd>
+				<dt>{{__("Date of Birth")}}:</dt>
 					<dd>04.12.01</dd>
-				<dt>Hobbies:</dt>
-					<dd>Playing computer games,reading,watching animes</dd>
+				<dt>{{__("Hobbies")}}:</dt>
+					<dd>{{__("Playing computer games,reading,watching animes")}}</dd>
 			</dl>
 		</div>
 		<div class="skill">
-			<h1>Skills</h1>
+			<h1>{{__("Skills")}}</h1>
 			<br>
-			<p>I have no bad habits and I'm good at team working.</p>
+			<p>{{__("I have no bad habits and I'm good at team working.")}}</p>
 
-			<h2>Languages that I learned</h2>
+			<h2>{{__("Languages that I learned")}}</h2>
 			<div class="progress">
 			  <div class="progress-bar" role="progressbar" aria-valuenow="70"
 			  aria-valuemin="0" aria-valuemax="100" style="width:70%">
@@ -103,16 +108,5 @@
 			<br>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var main = document.getElementById('main');
-		main.addEventListener('click',function(){
-			document.location.href = "/main";
-		});
-
-		var contact = document.getElementById('contact');
-		contact.addEventListener('click',function(){
-			document.location.href = "/contactMe";
-		});
-	</script>
 </body>
 </html>

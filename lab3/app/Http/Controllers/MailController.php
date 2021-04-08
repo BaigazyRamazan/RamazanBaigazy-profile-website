@@ -12,9 +12,9 @@ class MailController extends Controller
 {
     public function send_mail(){
     	$data = [
-    		'name' => 'Shrek'
+    		'name' => 'Ramazan'
     	];
 
-    	Mail::to('shbazhenov@gmail.com')->send(new SendMail($data));
+    	Mail::to('190103273@stu.sdu.edu.kz')->send(new SendMail($data));
     }
 }

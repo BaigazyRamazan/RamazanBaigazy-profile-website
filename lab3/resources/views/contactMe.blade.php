@@ -13,27 +13,32 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body style="background-color: black">
 	<div class="header">
 		<div>
-			<a id="main" href="#">Home</a>
+			<a href="{{route('main',app()->getLocale())}}">{{__("Home")}}</a>
 		</div>
 		<div>
-			<a id="about" href="#">About Me</a>
+			<a  href="{{route('aboutMe',app()->getLocale())}}">{{__("About Me")}}</a>
 		</div>
 		<div>
-			<p id="active">Contact Me</p>
+			<p id="active">{{__("Contact Me")}}</p>
+		</div>
+		<div class="nav-item">
+			<a href="{{route(Route::currentRouteName(),'en')}}" class="">EN</a>
+			<a href="{{route(Route::currentRouteName(),'ru')}}" class="">RU</a>
+			<a href="{{route(Route::currentRouteName(),'kz')}}" class="">KZ</a>
 		</div>
 	</div>
 	<div class="footer">
-		<h4>Get in touch</h4>
+		<h4>{{__("Get in touch")}}</h4>
 <!-- 		<br>
 		<br>
 		<br> -->
-		<h1>Contact</h1>
+		<h1>{{__("Contact")}}</h1>
 		<br>
 		<div class="informations">
 			<p>
@@ -45,20 +50,9 @@
 			</p>
 			<p>
 				<i class="material-icons">location_on</i>
-				<a>Toraigyrova 51, Almaty, Kazakhstan</a>
+				<a>{{__("Toraigyrova 51, Almaty, Kazakhstan")}}</a>
 			</p>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var about = document.getElementById('about');
-		about.addEventListener('click',function(){
-			document.location.href = "/aboutMe";
-		});
-
-		var main = document.getElementById('main');
-		main.addEventListener('click',function(){
-			document.location.href = "/main";
-		});
-	</script>
 </body>
 </html>

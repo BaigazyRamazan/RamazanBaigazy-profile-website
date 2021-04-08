@@ -23,12 +23,6 @@ class FormController extends Controller
     	} else {
     		dd('Request does not exists');
     	}
-    	Form::create([
-            'Name' => $request->name,
-            'Surname' => $request->surname,
-            'Email' => $request->email,
-            'Profile photo' => $request->photo
-        ]);
 
         return back();
     }

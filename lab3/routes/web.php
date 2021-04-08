@@ -20,19 +20,27 @@ use App\Http\Controllers\MailController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/','en');
 
-Route::get('/main',function(){
-	return redirect('main.php');
-});
+//lab9
+Route::group(['prefix' => '{language}'],function(){
 
-Route::get('aboutMe',function(){
-	return redirect('aboutMe.php');
-});
+	Route::get('/', function () {
+    	return view('welcome');
+	});
+ 
+	Route::get('/main',function(){
+		// App::setLocale('ru');
+		return view('main');
+	})->name('main');
 
-Route::redirect('contactMe','contactMe.php');
+	Route::get('aboutMe',function(){
+		return view('aboutMe');
+	})->name('aboutMe');
+
+	Route::view('contactMe','contactMe')->name('contactMe');
+
+});
 
 Route::get('/post/create',function ()
 {
